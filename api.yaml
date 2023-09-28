@@ -143,7 +143,7 @@ components:
         name:
           type: string
         tag:
-          type: string    
+          type: string
 
     Error:
       type: object

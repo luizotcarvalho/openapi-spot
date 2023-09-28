@@ -9,7 +9,7 @@
     "test:unit": "vitest",
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "openapi-type": "openapi-typescript ../openapi.yaml -o ./src/openapi.d.ts"
+    "api-type": "openapi-typescript ../api.yaml -o ./src/api.d.ts"
   },
   "dependencies": {
     "openapi-fetch": "^0.7.6",

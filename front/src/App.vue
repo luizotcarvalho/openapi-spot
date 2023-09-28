@@ -18,4 +18,14 @@ function changePetTag(pet: Pet) {
 
 <template>
   <button @click="loadPets">Load Pets</button>
+  <ul>
+    <li v-for="pet in pets" :key="pet.id">
+      <p>
+        <strong>Name:</strong> {{ pet.name }}
+      </p>
+      <p>
+        <strong>Tag:</strong> {{ pet.tag }}
+      </p>
+    </li>
+  </ul>
 </template>

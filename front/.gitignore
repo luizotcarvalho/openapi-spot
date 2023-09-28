@@ -27,4 +27,4 @@ coverage
 *.sln
 *.sw?
 
-src/openapi.d.ts
+src/api.d.ts
