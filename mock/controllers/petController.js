@@ -25,7 +25,7 @@ module.exports.addPet = (req, res) => {
  * @oastools {path} /{id}
  */
 module.exports.getPetById = (req, res) => {
-    const pet = pets.find(pet => pet.id === parseInt(req.params.id))
+    const pet = pets.find(pet => pet.id === res.locals.oas.params.id)
 
     if(!pet) res.status(404).send('The pet with the given ID was not found.');
 
@@ -37,7 +37,7 @@ module.exports.getPetById = (req, res) => {
  * @oastools {path} /{id}
  */
 module.exports.deletePet = (req, res) => {
-    const pet = pets.find(pet => pet.id === parseInt(req.params.id))
+    const pet = pets.find(pet => pet.id === res.locals.oas.params.id)
 
     if(pet) {
         const index = pets.indexOf(pet);

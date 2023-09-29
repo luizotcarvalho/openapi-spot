@@ -3,13 +3,21 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "watch": {
+    "server": {
+      "patterns": ["../api.yaml", "controllers", "data"],
+      "extensions": "js,yaml,json"
+    }
+  },
   "scripts": {
-    "server": "node ./index.js"
+    "server": "node ./index.js",
+    "watch": "npm-watch"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@oas-tools/core": "^3.1.0",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "npm-watch": "^0.11.0"
   }
 }
