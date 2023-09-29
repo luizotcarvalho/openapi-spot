@@ -11,7 +11,7 @@
   },
   "scripts": {
     "server": "node ./index.js",
-    "watch": "npm-watch"
+    "watch": "npm-watch server"
   },
   "author": "",
   "license": "ISC",
