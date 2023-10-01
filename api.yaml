@@ -49,11 +49,9 @@ paths:
                 items:
                   $ref: '#/components/schemas/Pet'
         default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/components/responses/UnexpectedError'
+
+  /pets/create:  
     post:
       description: Creates a new pet in the store. Duplicates are allowed
       requestBody:
@@ -71,23 +69,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/Pet'
         default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/components/responses/UnexpectedError'
 
   /pets/{id}:
     get:
       description: Returns a user based on a single ID, if the user does not have access to the pet
       parameters:
-        - name: id
-          in: path
-          description: ID of pet to fetch
-          required: true
-          schema:
-            type: integer
-            format: int64
+        - $ref: '#/components/parameters/PetId'
       responses:
         200:
           description: pet response
@@ -98,30 +86,18 @@ paths:
         404:
           description: pet not found
         default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
-    delete:
+          $ref: '#/components/responses/UnexpectedError'
+
+  /pets/{id}/delete:  
+    post:
       description: deletes a single pet based on the ID supplied
       parameters:
-        - name: id
-          in: path
-          description: ID of pet to delete
-          required: true
-          schema:
-            type: integer
-            format: int64
+        - $ref: '#/components/parameters/PetId'
       responses:
         204:
           description: pet deleted
         default:
-          description: unexpected error
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Error'
+          $ref: '#/components/responses/UnexpectedError'
 
 components:
   schemas:
@@ -170,3 +146,21 @@ components:
           format: int32
         type:
           type: string
+  
+  parameters:
+    PetId:
+      name: id
+      in: path
+      description: ID of pet to fetch
+      required: true
+      schema:
+        type: integer
+        format: int64
+
+  responses:
+    UnexpectedError:
+      description: unexpected error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
