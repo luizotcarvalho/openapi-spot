@@ -1,5 +1,5 @@
 import type { NewPet } from "@/types/pet";
-import { GET, POST, DELETE } from "@/api";
+import { GET, POST } from "@/api/index";
 
 export const showPetById = async (id: number) => {
     return GET("/pets/{id}", {
@@ -10,13 +10,13 @@ export const showPetById = async (id: number) => {
 }
 
 export const createPets = async (pet: NewPet) => {
-    return POST("/pets", {
+    return POST("/pets/create", {
         body: pet,            
     });
 }
 
 export const deletePet = async (id: number) => {
-    return DELETE("/pets/{id}", {
+    return POST("/pets/{id}/delete", {
         params: {
          path: { id },
         },
@@ -24,7 +24,7 @@ export const deletePet = async (id: number) => {
 }
 
 export const listPets = async (tags: string[] = [], limit: number = 10) => {
-    return GET("/pets", {
+    return GET("/pets/", {
         params: {
             query: {
                 tags,

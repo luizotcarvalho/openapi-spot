@@ -1,10 +1,12 @@
 const http = require('http')
 const express = require('express')
+const cors = require('cors')
 const oasTools = require('@oas-tools/core')
 
 const PORT = 3000;
 const app = express();
 
+app.use(cors())
 app.use(express.json());
 
 oasTools.initialize(app, {

@@ -1,4 +1,4 @@
-/** @oastools {Controller} /pets */
+/** @oastools {Controller} /pets/ */
 const pets = require('../data/pets.json');
 
 /**
@@ -10,6 +10,7 @@ module.exports.findPets = (req, res) => {
 
 /**
  * @oastools {method} POST
+ * @oastools {path} create
  */
 module.exports.addPet = (req, res) => {
     const newPet = {
@@ -22,7 +23,7 @@ module.exports.addPet = (req, res) => {
 
 /**
  * @oastools {method} GET
- * @oastools {path} /{id}
+ * @oastools {path} {id}
  */
 module.exports.getPetById = (req, res) => {
     const pet = pets.find(pet => pet.id === res.locals.oas.params.id)
@@ -33,8 +34,8 @@ module.exports.getPetById = (req, res) => {
 };
 
 /**
- * @oastools {method} DELETE
- * @oastools {path} /{id}
+ * @oastools {method} POST
+ * @oastools {path} {id}/delete
  */
 module.exports.deletePet = (req, res) => {
     const pet = pets.find(pet => pet.id === res.locals.oas.params.id)
