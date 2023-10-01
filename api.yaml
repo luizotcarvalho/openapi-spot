@@ -48,6 +48,12 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Pet'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
     post:
       description: Creates a new pet in the store. Duplicates are allowed
       requestBody:
@@ -64,6 +70,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Pet'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
   /pets/{id}:
     get:
@@ -85,6 +97,12 @@ paths:
                 $ref: '#/components/schemas/Pet'
         404:
           description: pet not found
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
     delete:
       description: deletes a single pet based on the ID supplied
       parameters:
@@ -98,6 +116,12 @@ paths:
       responses:
         204:
           description: pet deleted
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 
 components:
   schemas:
@@ -120,4 +144,29 @@ components:
         name:
           type: string
         tag:
+          type: string
+
+    Error:
+      type: object
+      required:
+        - errors
+      properties:
+        errors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ErrorItem'
+
+    ErrorItem:
+      type: object
+      required:
+        - title
+        - status
+        - type
+      properties:
+        title:
+          type: string
+        status:
+          type: integer
+          format: int32
+        type:
           type: string

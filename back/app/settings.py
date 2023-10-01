@@ -54,6 +54,8 @@ MIDDLEWARE = [
 
 OPENAPI_SPEC = Spec.from_file_path("../api.yaml")
 
+SILENCED_SYSTEM_CHECKS = ["urls.W002"]
+
 ROOT_URLCONF = "app.urls"
 
 TEMPLATES = [
