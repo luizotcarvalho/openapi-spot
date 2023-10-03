@@ -1,9 +1,9 @@
-# OpenAPI Single Source Of Truth
+# OpenAPI SPOT (Single Point Of Truth)
 
 ## Motivação
 
-Hoje não temos uma forma de garantir a coesão de dados entre backend, frontend e mock, o que pode ocasionar bugs e diminuir a velocidade de desenvolvimento.
-Ao utilizar o padrão [OpenAPI](https://www.openapis.org/) para documentar nossos endpoints conseguimos também fazer uso de ferramentas específicas para gerar código e validar dados afim de garantir que todas as camadas da aplicação estão em sincronia, veja algumas da funcionalidades que conseguimos alcançar com essas ferramentas:
+Garantir a coesão de dados entre backend, frontend e mock sem nenhuma ajuda é díficil, o que pode ocasionar bugs e diminuir a velocidade de desenvolvimento.
+Ao utilizar o padrão [OpenAPI](https://www.openapis.org/) para documentar os endpoints da API conseguimos também fazer uso de ferramentas específicas para gerar código e validar dados afim de garantir que todas as camadas da aplicação estão em sincronia, veja algumas da funcionalidades que conseguimos alcançar com essas ferramentas:
 
 ### Backend
 - Validação de request e response com [openapi-core](https://github.com/python-openapi/openapi-core);
